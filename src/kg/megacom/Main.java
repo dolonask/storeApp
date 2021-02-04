@@ -1,5 +1,6 @@
 package kg.megacom;
 
+import kg.megacom.models.OperationStatus;
 import kg.megacom.models.Product;
 import kg.megacom.models.Seller;
 
@@ -25,6 +26,14 @@ public class Main {
         seller.sell(new Product(2, "СЫР", 1000));
         seller.sell(new Product(2, "СЫР", 1000));
 
-        seller.print();
+        seller.closeOperation(OperationStatus.PAYED);
+
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
+
+        seller.closeOperation(OperationStatus.CANCELED);
+
+        seller.closeOperation(OperationStatus.PAYED);
     }
 }

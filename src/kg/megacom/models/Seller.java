@@ -44,6 +44,8 @@ public class Seller extends Employee implements SellService {
          */
         Operation myOperation = getOperation();
 
+
+        // Тут надо вызвать Exception
         if (myOperation == null){
             System.out.println("Массив наполнен!");
             return;
@@ -95,5 +97,12 @@ public class Seller extends Employee implements SellService {
     @Override
     public void closeOperation(OperationStatus operationStatus) {
 
+
+        /*
+            1. Найти операцию со статусов OPEN
+            2. Если такой операции нет, то вызвать Exception (Операция не найдена!)
+            3. Если операций со статусом OPEN больше чем 1, то вызвать Exception (Системная ошибка!)
+            4. Если все ок, то закрываем операцию
+         */
     }
 }
