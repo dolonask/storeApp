@@ -13,6 +13,17 @@ public class Main {
 
 
         seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(1, "Молоко", 100));
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
+        seller.sell(new Product(2, "СЫР", 1000));
 
         seller.print();
     }

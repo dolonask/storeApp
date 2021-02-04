@@ -49,25 +49,23 @@ public class Seller extends Employee implements SellService {
             return;
         }
 
-        boolean productExists = false;
-        for (int i = 0; i < myOperation.getOperationDetails().length; i++){
+        for (int i = 0; i < myOperation.getOperationDetails().length; i++) {
 
             OperationDetails operationDetails = myOperation.getOperationDetails()[i];
 
-            if (operationDetails == null) continue;
-
-            if (operationDetails.getProduct().getId() == product.getId()){
-                operationDetails.setAmount(operationDetails.getAmount() + 1);
-                productExists = true;
+            if (operationDetails == null) {
+                operationDetails = new OperationDetails(product, 1);
+                myOperation.getOperationDetails()[i] = operationDetails;
                 break;
+            }else{
+                if (operationDetails.getProduct().getId() == product.getId()){
+                    operationDetails.setAmount(operationDetails.getAmount() + 1);
+                    break;
+                }
             }
-
         }
 
-        if (!productExists){
-            OperationDetails operationDetails = new OperationDetails(product, 1);
-            myOperation.setOperationDetails(operationDetails);
-        }
+
     }
 
     private Operation getOperation() {
@@ -87,6 +85,8 @@ public class Seller extends Employee implements SellService {
 
             myOperation = new Operation(Math.random(),OperationStatus.OPEN, OperationType.SELL);
             operations[i] = myOperation;
+            break;
+
         }
 
         return myOperation;
